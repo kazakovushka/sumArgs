@@ -1,20 +1,10 @@
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class ArrayIntCounter {
-    private int[] arr;
 
-    public ArrayIntCounter(int[] initArray) {
-        arr = Objects.requireNonNull(initArray);
-    }
-
-    public int sum() {
-        int result = 0;
-        if (arr != null) {
-            for (int i = 0; i < arr.length; i++) {
-                result = result + arr[i];
-            }
-        }
-        return result;
+    public static int sum(IntStream intStream) {
+        return intStream
+                .reduce((x, y) -> (x + y))
+                .orElse(0);
     }
 }
